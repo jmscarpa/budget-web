@@ -2,5 +2,7 @@
 <h2>My Transactions</h2>
 
 <div *ngFor="let transaction of transactions">
-    <app-transaction-card [transaction]="transaction"></app-transaction-card>
+    <div (click)="navigateToTransaction(transaction.id)">
+        <app-transaction-card [transaction]="transaction"></app-transaction-card>
+    </div>
 </div>

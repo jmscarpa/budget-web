@@ -11,6 +11,7 @@ import { TransactionCardComponent } from './components/transaction-card/transact
 
 import { HomeComponent } from './pages/home/home.component';
 import TransactionsListComponent from './pages/transactions-list/transactions-list.component';
+import { TransactionDetailsComponent } from './pages/transactions-details/transaction-details.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import TransactionsListComponent from './pages/transactions-list/transactions-li
     HomeComponent,
     TransactionsListComponent,
     TransactionCardComponent,
+    TransactionDetailsComponent,
   ],
 
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],

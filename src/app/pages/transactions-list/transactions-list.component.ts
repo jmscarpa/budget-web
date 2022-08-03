@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction, TransactionIndex } from 'src/app/models/transaction';
 import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transactions-list',
@@ -10,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 
 export default class TransactionsListComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   public transactions: Transaction[] = [];
   public budgetAvaliable: number = 0;
@@ -21,5 +22,9 @@ export default class TransactionsListComponent implements OnInit {
       this.budgetAvaliable = data.budget;
     });
   }
+
+  public navigateToTransaction(transactionId :number): void {
+    this.router.navigate(['/transaction', transactionId]);
+}
 
 }
