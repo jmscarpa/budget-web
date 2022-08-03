@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HelloBadgeComponent } from './components/hello-badge/hello-badge.component';
+import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
 
 import { HomeComponent } from './pages/home/home.component';
-import { TransactionsListComponent } from './pages/transactions-list/transactions-list.component';
+import TransactionsListComponent from './pages/transactions-list/transactions-list.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,10 @@ import { TransactionsListComponent } from './pages/transactions-list/transaction
     HelloBadgeComponent,
     HomeComponent,
     TransactionsListComponent,
+    TransactionCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

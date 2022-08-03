@@ -1,4 +1,6 @@
 <a [routerLink]="['']">Back to Home</a>
 <h2>My Transactions</h2>
 
-<app-hello-badge name="Henrique" icon="house"></app-hello-badge>
+<div *ngFor="let transaction of transactions">
+    <app-transaction-card [transaction]="transaction"></app-transaction-card>
+</div>
