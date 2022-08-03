@@ -1,0 +1,28 @@
+<div style="border:1px solid red">
+  <a [routerLink]="['']">
+    <h3>Home</h3>
+  </a>
+  <app-hello-badge name="Bizzotto!" style="text-align: center"></app-hello-badge>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Kind</th>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.id}}</td>
+            <td>{{transaction.kind}}</td>
+            <td>{{transaction.date_of_transaction}}</td>
+            <td>{{transaction.description}}</td>
+            <td>{{transaction.value}}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
