@@ -10,7 +10,7 @@
         </button>
     </div>
 </div>
-<hr class="mb-8"/>
+<hr class="mb-8" />
 
 <div class="row">
     <div class="col-2">
@@ -24,10 +24,27 @@
     </div>
 </div>
 
-<hr class="mt-8"/>
+<hr class="mt-8" />
 
-<div *ngFor="let transaction of transactions">
-    <div (click)="navigateToTransaction(transaction.id)" style="padding-bottom: 16px">
-        <app-transaction-card [transaction]="transaction"></app-transaction-card>
+<!-- Loading spinner -->
+<div *ngIf="loadingTransactions">
+    <app-spinner-loading></app-spinner-loading>
+</div>
+
+<!-- Empty transactions cards -->
+<div *ngIf="transactions != [] && !loadingTransactions">
+    <div *ngFor="let transaction of transactions">
+        <div (click)="navigateToTransaction(transaction.id)" style="padding-bottom: 16px">
+            <app-transaction-card [transaction]="transaction"></app-transaction-card>
+        </div>
+    </div>
+</div>
+
+<!-- Empty transactions -->
+<div *ngIf="transactions == [] && !loadingTransactions">
+    <div class="row">
+        <div class="col">
+            <h3>Nenhuma transação encontrada</h3>
+        </div>
     </div>
 </div>

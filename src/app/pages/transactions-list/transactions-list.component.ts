@@ -14,10 +14,13 @@ export default class TransactionsListComponent implements OnInit {
   public transactions: Transaction[] = [];
   public budgetAvaliable: number = 0;
 
+  public loadingTransactions: boolean = true;
+
   ngOnInit(): void {
     this.api.get<TransactionIndex>('/transactions').then((data) => {
       this.transactions = data.transactions;
       this.budgetAvaliable = data.budget;
+      this.loadingTransactions = false;
     });
   }
 

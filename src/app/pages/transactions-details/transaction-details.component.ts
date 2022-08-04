@@ -15,9 +15,12 @@ export class TransactionDetailsComponent implements OnInit{
 
     public transaction?: Transaction;
 
+    public loadingTransaction: boolean = true;
+
     ngOnInit(): void {
         this.api.get<Transaction>(`transactions/${this.transactionId}`).then((data) => {
             this.transaction = data;
+            this.loadingTransaction = false;
         })
     }
 }

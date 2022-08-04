@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 
 import { HelloBadgeComponent } from './components/hello-badge/hello-badge.component';
 import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
+import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import TransactionsListComponent from './pages/transactions-list/transactions-list.component';
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TransactionCardComponent,
     TransactionDetailsComponent,
     NewTransactionComponent,
+    SpinnerLoadingComponent,
   ],
 
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
