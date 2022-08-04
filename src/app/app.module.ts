@@ -14,6 +14,8 @@ import TransactionsListComponent from './pages/transactions-list/transactions-li
 import { TransactionDetailsComponent } from './pages/transactions-details/transaction-details.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +27,8 @@ import { NewTransactionComponent } from './pages/new-transaction/new-transaction
     NewTransactionComponent,
   ],
 
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

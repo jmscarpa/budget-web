@@ -1,3 +1,24 @@
 <a [routerLink]="['/transactions']">Back to Transactions</a>
 
 <h2>Nova transação</h2>
+
+<form>
+    <div class="mb-3">
+        <label for="value" class="form-label">Valor: </label>
+        <input id="value" type="number" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Descrição: </label>
+        <input id="description" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="transaction_date" class="form-label">Data da transação: </label>
+        <input id="transaction_date" type="date" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="transaction_type" class="form-label">Tipo da transação: </label>
+        <input id="transaction_type" type="text" class="form-control">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

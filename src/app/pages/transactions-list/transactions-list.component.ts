@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Transaction, TransactionIndex } from 'src/app/models/transaction';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-transactions-list',
   templateUrl: './transactions-list.component.html',
@@ -30,3 +29,4 @@ export default class TransactionsListComponent implements OnInit {
     this.router.navigate(['/transactions', 'new']);
   }
 }
+

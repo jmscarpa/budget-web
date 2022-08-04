@@ -1,4 +1,5 @@
 <a [routerLink]="['']">Back to Home</a>
+
 <div class="row">
     <div class="col-4">
         <h2>Minhas transações</h2>
@@ -9,6 +10,21 @@
         </button>
     </div>
 </div>
+<hr class="mb-8"/>
+
+<div class="row">
+    <div class="col-2">
+        <button>Mostrar todas</button>
+    </div>
+    <div class="col-2">
+        <button>Mostrar entradas</button>
+    </div>
+    <div class="col-2">
+        <button>Mostrar saidas</button>
+    </div>
+</div>
+
+<hr class="mt-8"/>
 
 <div *ngFor="let transaction of transactions">
     <div (click)="navigateToTransaction(transaction.id)" style="padding-bottom: 16px">
