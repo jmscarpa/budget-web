@@ -11,4 +11,5 @@ export class TransactionCardComponent {
     constructor(private router: Router) { }
 
     @Input() transaction!: Transaction;
+    @Input() showDetails: boolean = false;
 }

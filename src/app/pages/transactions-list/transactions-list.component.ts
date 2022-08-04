@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-transactions-list',
   templateUrl: './transactions-list.component.html',
-
 })
 
 export default class TransactionsListComponent implements OnInit {
@@ -17,14 +16,17 @@ export default class TransactionsListComponent implements OnInit {
   public budgetAvaliable: number = 0;
 
   ngOnInit(): void {
-    this.api.get<TransactionIndex>('/transactions').then((data) =>{
+    this.api.get<TransactionIndex>('/transactions').then((data) => {
       this.transactions = data.transactions;
       this.budgetAvaliable = data.budget;
     });
   }
 
-  public navigateToTransaction(transactionId :number): void {
+  public navigateToTransaction(transactionId: number): void {
     this.router.navigate(['/transaction', transactionId]);
-}
+  }
 
+  public navigateToNewTransaction(): void {
+    this.router.navigate(['/transactions', 'new']);
+  }
 }

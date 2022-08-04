@@ -2,7 +2,6 @@ import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { environment } from './../../environments/environment';
 
 export interface RequestSettings {
@@ -77,7 +76,7 @@ export class ApiService {
   private async parseRequest<T>(
     request: Observable<T>,
     settings?: RequestSettings
-  ): Promise<T> {
+  ): Promise<any> {
     return request
       .toPromise()
       .then((success: T) => success)
@@ -98,7 +97,7 @@ export class ApiService {
 
   private errorResponse(
     response: HttpErrorResponse,
-    settings: RequestSettings
+    settings: RequestSettings = { throw404Errors: true }
   ): null {
     switch (response.status) {
       case 401: {

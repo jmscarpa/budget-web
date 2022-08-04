@@ -1,9 +1,4 @@
 <a [routerLink]="['/transactions']">Back to Transactions</a>
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">{{ transaction?.description }}</h5>
-        <p class="card-text">{{ transaction?.value | currency:'BRL' }}</p>
-        <p class="card-text">{{ transaction?.transaction_date | date:'medium' }}</p>
-    </div>
-</div>
+<h2>Detalhes da transação</h2>
+<app-transaction-card [transaction]="transaction!" [showDetails]="true" > </app-transaction-card>

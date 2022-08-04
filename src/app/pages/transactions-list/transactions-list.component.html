@@ -1,8 +1,17 @@
 <a [routerLink]="['']">Back to Home</a>
-<h2>My Transactions</h2>
+<div class="row">
+    <div class="col-4">
+        <h2>Minhas transações</h2>
+    </div>
+    <div class="col">
+        <button class="btn btn-primary" (click)="navigateToNewTransaction()">
+            Nova transação
+        </button>
+    </div>
+</div>
 
 <div *ngFor="let transaction of transactions">
-    <div (click)="navigateToTransaction(transaction.id)">
+    <div (click)="navigateToTransaction(transaction.id)" style="padding-bottom: 16px">
         <app-transaction-card [transaction]="transaction"></app-transaction-card>
     </div>
 </div>

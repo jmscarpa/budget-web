@@ -16,7 +16,7 @@ export class TransactionDetailsComponent implements OnInit{
     public transaction?: Transaction;
 
     ngOnInit(): void {
-        this.api.get<Transaction>(`/transaction/${this.transactionId}`).then((data) => {
+        this.api.get<Transaction>(`transactions/${this.transactionId}`).then((data) => {
             this.transaction = data;
         })
     }
