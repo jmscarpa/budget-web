@@ -5,7 +5,7 @@
                 <h5 class="card-title">{{ transaction.description }}</h5>
                 <p class="card-text">{{ transaction.value | currency:'BRL' }}</p>
                 <p class="card-text"> Tipo da transação: {{ transaction.transaction_type.name }}</p>
-                <p class="card-text">{{ transaction.transaction_date| date:'medium' }}</p>
+                <p class="card-text">{{ transaction.transaction_date | date:'d/M/y, h:mm a' }}</p>
                 <div *ngIf="showDetails">
                     <p class="card-text"> ID da transação: {{ transaction.id }}</p>
                 </div>
