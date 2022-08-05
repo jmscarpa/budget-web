@@ -1,11 +1,20 @@
 <div class="card card-block">
-    <div class = "card-body">
-        <h5 class="card-title">{{ transaction.description }}</h5>
-        <p class="card-text">{{ transaction.value | currency:'BRL' }}</p>
-        <p class="card-text">{{ transaction.transaction_date| date:'medium' }}</p>
-        <div *ngIf="showDetails">
-            <p class="card-text"> ID da transação: {{ transaction.id }}</p>
-            <p class="card-text"> Tipo da transação: {{ transaction.transaction_type.name }}</p>
-             </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-xl-between">
+            <div class="d-flex flex-column">
+                <h5 class="card-title">{{ transaction.description }}</h5>
+                <p class="card-text">{{ transaction.value | currency:'BRL' }}</p>
+                <p class="card-text"> Tipo da transação: {{ transaction.transaction_type.name }}</p>
+                <p class="card-text">{{ transaction.transaction_date| date:'medium' }}</p>
+                <div *ngIf="showDetails">
+                    <p class="card-text"> ID da transação: {{ transaction.id }}</p>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-danger">
+                    Excluir
+                </button>
+            </div>
+        </div>
     </div>
 </div>

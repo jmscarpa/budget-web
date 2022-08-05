@@ -17,12 +17,34 @@ export default class TransactionsListComponent implements OnInit {
   public loadingTransactions: boolean = true;
 
   ngOnInit(): void {
+    this.getAllTransactions();
+  }
+
+  /**
+   * Api fetch
+   */
+
+   public getAllTransactions(): void {
+    this.loadingTransactions = true;
     this.api.get<TransactionIndex>('/transactions').then((data) => {
       this.transactions = data.transactions;
       this.budgetAvaliable = data.budget;
       this.loadingTransactions = false;
     });
   }
+
+  public filterTransactions(filter : object): void {
+    this.loadingTransactions = true;
+    this.api.get<TransactionIndex>('/transactions', filter).then((data) => {
+      this.transactions = data.transactions;
+      this.budgetAvaliable = data.budget;
+      this.loadingTransactions = false;
+    });
+  }
+
+  /**
+   * Navigation
+   */
 
   public navigateToTransaction(transactionId: number): void {
     this.router.navigate(['/transaction', transactionId]);
