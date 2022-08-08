@@ -21,7 +21,7 @@ export default class TransactionsListComponent implements OnInit {
   }
 
   /**
-   * Api fetch
+   * Api
    */
 
    public getAllTransactions(): void {
@@ -42,6 +42,12 @@ export default class TransactionsListComponent implements OnInit {
     });
   }
 
+  public deleteTransaction(transactionId: number): void {
+    this.api.delete<Transaction>(`/transactions/${transactionId}`).then(() => {
+      this.getAllTransactions();
+    });
+  }
+
   /**
    * Navigation
    */
@@ -52,6 +58,10 @@ export default class TransactionsListComponent implements OnInit {
 
   public navigateToNewTransaction(): void {
     this.router.navigate(['/transactions', 'new']);
+  }
+
+  public navigateToEditTransaction(transaction: Transaction): void {
+    this.router.navigate(['/transactions', 'new'], {state: transaction});
   }
 }
 

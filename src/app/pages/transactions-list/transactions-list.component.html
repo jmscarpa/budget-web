@@ -12,15 +12,17 @@
 </div>
 <hr class="mb-8" />
 
-<div class="row">
+<div class="d-flex">
     <div class="col-2">
-        <button (click)="getAllTransactions()" >Mostrar todas</button>
+        <button type="button" class="btn btn-primary" (click)="getAllTransactions()">Mostrar todas</button>
     </div>
     <div class="col-2">
-        <button (click)="filterTransactions({transaction_type:'1'})">Mostrar entradas</button>
+        <button type="button" class="btn btn-primary" (click)="filterTransactions({transaction_type:'1'})">Mostrar
+            entradas</button>
     </div>
     <div class="col-2">
-        <button (click)="filterTransactions({transaction_type: '2'})">Mostrar saidas</button>
+        <button type="button" class="btn btn-primary" (click)="filterTransactions({transaction_type: '2'})">Mostrar
+            saidas</button>
     </div>
 </div>
 
@@ -31,11 +33,22 @@
     <app-spinner-loading></app-spinner-loading>
 </div>
 
+<div class="card mb-3">
+    <div class="card-header">
+        Budget
+    </div>
+    <div class="card-body">
+        {{budgetAvaliable | currency:'BRL':'symbol':'1.2-2'}}
+    </div>
+</div>
+
 <!-- Empty transactions cards -->
 <div *ngIf="transactions != [] && !loadingTransactions">
     <div *ngFor="let transaction of transactions">
-        <div (click)="navigateToTransaction(transaction.id)" style="padding-bottom: 16px">
-            <app-transaction-card [transaction]="transaction"></app-transaction-card>
+        <div style="padding-bottom: 16px">
+            <app-transaction-card [transaction]="transaction" [delete]="deleteTransaction"
+                [show]="navigateToTransaction" [edit]="navigateToEditTransaction">
+            </app-transaction-card>
         </div>
     </div>
 </div>

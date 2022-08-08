@@ -12,7 +12,11 @@ export interface TransactionIndex{
     transactions: Transaction[];
 }
 
-interface TransactionType{
+export interface TransactionType{
     id: number;
     name: string;
+}
+
+export interface TransactionTypes{
+    transaction_types: TransactionType[];
 }

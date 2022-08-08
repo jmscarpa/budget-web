@@ -73,6 +73,20 @@ export class ApiService {
     );
   }
 
+  public async delete<T>(
+    url: string,
+    params: object = {},
+    settings?: RequestSettings
+  ): Promise<T> {
+    return this.parseRequest<T>(
+      this.httpClient.delete<T>(
+        `${environment.apiUrl}/${url}`,
+        this.getOptions(params)
+      ),
+      settings
+    );
+  }
+
   private async parseRequest<T>(
     request: Observable<T>,
     settings?: RequestSettings

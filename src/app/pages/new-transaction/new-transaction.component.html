@@ -2,23 +2,33 @@
 
 <h2>Nova transação</h2>
 
-<form>
+<form [formGroup]="transactionForm">
     <div class="mb-3">
-        <label for="value" class="form-label">Valor: </label>
-        <input id="value" type="number" class="form-control">
+        <label for="value" class="form-label">Valor: </label> 
+        <input id="value" type="text" formControlName="value" class="form-control">
     </div>
+
     <div class="mb-3">
         <label for="description" class="form-label">Descrição: </label>
-        <input id="description" type="text" class="form-control">
+        <input id="description" type="text" formControlName="description" class="form-control">
     </div>
+
     <div class="mb-3">
         <label for="transaction_date" class="form-label">Data da transação: </label>
-        <input id="transaction_date" type="date" class="form-control">
+        <input id="transaction_date" type="date" formControlName="transactionDate" class="form-control">
     </div>
+
     <div class="mb-3">
         <label for="transaction_type" class="form-label">Tipo da transação: </label>
-        <input id="transaction_type" type="text" class="form-control">
+        <select id="transaction_type" formControlName="transactionType" class="form-control">
+            <option *ngFor="let transactionType of transactionTypes" [ngValue]="transactionType.id">
+                {{ transactionType.name }}
+            </option>
+        </select>
     </div>
-    
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Cadastrar</button>
+
 </form>
+
+<pre> {{transactionForm.value | json}}</pre>

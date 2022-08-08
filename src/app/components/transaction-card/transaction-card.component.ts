@@ -12,4 +12,8 @@ export class TransactionCardComponent {
 
     @Input() transaction!: Transaction;
     @Input() showDetails: boolean = false;
+    @Input() showButtons: boolean = true;
+    @Input() delete!: (transactionId: number) => void;
+    @Input() show!: (transactionId: number) => void;
+    @Input() edit!: (transaction: Transaction) => void;
 }
