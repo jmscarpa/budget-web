@@ -1,0 +1,11 @@
+<a [routerLink]="['/transaction-categories']">Voltar para categorias</a>
+
+<h2>Nova categoria</h2>
+
+<form [formGroup]="transactionCategoryForm">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nome: </label> 
+        <input id="name" type="text" formControlName="name" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Cadastrar</button>
+</form>

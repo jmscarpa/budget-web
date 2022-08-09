@@ -8,8 +8,8 @@ import { TransactionCategory } from "src/app/models/transaction";
     templateUrl: "./transaction-categories-list.component.html",
 })
 
-export class TransactionCategoriesListComponent implements OnInit{
-    constructor(private api: ApiService) { }
+export class TransactionCategoriesListComponent implements OnInit {
+    constructor(private api: ApiService, private router: Router) { }
 
     public transactionCategories: TransactionCategory[] = [];
     public loadingCategories: boolean = true;
@@ -24,9 +24,17 @@ export class TransactionCategoriesListComponent implements OnInit{
 
     public getAllTransactionCategories(): void {
         this.loadingCategories = true;
-        this.api.get<TransactionCategory[]>('transaction_types').then((data) => {
+        this.api.get<TransactionCategory[]>('transaction-types').then((data) => {
             this.transactionCategories = data;
             this.loadingCategories = false;
         });
+    }
+
+    /**
+    * Navigation
+    */
+
+    public navigateToTransaction(): void {
+        this.router.navigate(['/transaction-categories/new']);
     }
 }

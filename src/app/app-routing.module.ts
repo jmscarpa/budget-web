@@ -7,6 +7,7 @@ import { TransactionDetailsComponent } from './pages/transactions-details/transa
 import { EditTransactionComponent } from './pages/edit-transaction/edit-transaction.component';
 import TransactionsListComponent from './pages/transactions-list/transactions-list.component';
 import { TransactionCategoriesListComponent } from './pages/transaction-categories-list/transaction-categories-list.component';
+import { NewTransactionCategoryComponent } from './pages/new-transaction-category/new-transaction-category.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'transaction/:id', component: TransactionDetailsComponent },
   { path: 'transactions/new', component: NewTransactionComponent },
   { path: 'transactions/:id/new', component: EditTransactionComponent },
-  { path: 'transaction-categories', component: TransactionCategoriesListComponent }
+  { path: 'transaction-categories', component: TransactionCategoriesListComponent },
+  { path: 'transaction-categories/new', component: NewTransactionCategoryComponent },
 ];
 
 @NgModule({
