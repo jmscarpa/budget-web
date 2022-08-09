@@ -1,4 +1,3 @@
-
 export interface Transaction {
     id: number;
     value: number;
@@ -24,4 +23,9 @@ export interface TransactionTypes{
 export interface TransactionNew{
     transaction_types: TransactionType[];
     transaction: Transaction;
+}
+
+export interface TransactionCategory{
+    id: number;
+    name: string;
 }

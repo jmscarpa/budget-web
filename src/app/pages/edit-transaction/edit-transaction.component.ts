@@ -55,7 +55,7 @@ export class EditTransactionComponent implements OnInit {
 
             this.transactionForm.patchValue({
                 value: this.transaction.value,
-                description: this.transaction.description,
+                description: this.transaction.description, 
                 transactionDate: this.transaction.transaction_date,
                 transactionType: this.transaction.transaction_type.id,
             });
