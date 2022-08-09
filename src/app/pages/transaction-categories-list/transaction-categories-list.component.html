@@ -12,7 +12,11 @@
 </div>
 
 
-<div>
+<div *ngIf="loadingCategories">
+    <app-spinner-loading></app-spinner-loading>
+</div>
+
+<div *ngIf="!loadingCategories">
     <table class="table">
         <thead>
             <tr>
@@ -34,4 +38,12 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+<div *ngIf="transactionCategories == [] && !loadingCategories">
+    <div class="row">
+        <div class="col">
+            <h3>Nenhuma categoria encontrada</h3>
+        </div>
+    </div>
 </div>
