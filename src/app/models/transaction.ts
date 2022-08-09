@@ -20,3 +20,8 @@ export interface TransactionType{
 export interface TransactionTypes{
     transaction_types: TransactionType[];
 }
+
+export interface TransactionNew{
+    transaction_types: TransactionType[];
+    transaction: Transaction;
+}

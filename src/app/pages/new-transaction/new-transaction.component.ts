@@ -9,15 +9,9 @@ import { Router } from '@angular/router';
 })
 
 export class NewTransactionComponent implements OnInit {
-    constructor(private api: ApiService, private router: Router) {
-        this.transaction = this.router.getCurrentNavigation()?.extras.state as Transaction
-    }
-
-    public transaction?: Transaction;
+    constructor(private api: ApiService, private router: Router) { }
 
     public transactionTypes: TransactionType[] = [];
-
-    private editTransaction: boolean = false;
 
     public transactionForm: FormGroup = new FormGroup({
         value: new FormControl('', [Validators.required]),
@@ -36,40 +30,26 @@ export class NewTransactionComponent implements OnInit {
                 "transaction_type_id": this.transactionForm.value.transactionType,
             }
 
-            if (!this.editTransaction) {
-                this.api.post<any>('transactions', data).then((data) => {
-                    console.log("sucesso!");
-                }).catch((error) => {
-                    console.log(error);
-                });
-            } else {
-                this.api.patch<any>(`transaction/${this.transaction?.id}`, data).then((data) => {}).catch((error) => {});
-            }
+
+            this.api.post<any>('transactions', data).then((data) => {
+                console.log("sucesso!");
+            }).catch((error) => {
+                console.log(error);
+            });
+
 
         }
     }
 
     ngOnInit(): void {
 
-        if (this.transaction) {
-            this.editTransaction = true;
-
-            this.transactionForm.patchValue({
-                value: this.transaction.value,
-                description: this.transaction.description,
-                transactionDate: this.transaction.transaction_date,
-                transactionType: this.transaction.transaction_type.id
-            });
-        }
-
         this.api.get<TransactionTypes>('/transaction/new',).then((data) => {
             this.transactionTypes = data.transaction_types;
 
-            if (!this.editTransaction) {
-                this.transactionForm.patchValue({
-                    transactionType: this.transactionTypes[0].id
-                });
-            }
+            this.transactionForm.patchValue({
+                transactionType: this.transactionTypes[0].id
+            });
+
         });
     }
 }

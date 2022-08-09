@@ -1,0 +1,42 @@
+<a [routerLink]="['/transactions']">Back to Transactions</a>
+
+<h2>Editar transação</h2>
+
+<!-- Loading transaction -->
+<div *ngIf="loadingTransaction">
+    <app-spinner-loading></app-spinner-loading>
+</div>
+
+<!-- Show transaction -->
+<div *ngIf="!loadingTransaction">
+    <form [formGroup]="transactionForm">
+        <div class="mb-3">
+            <label for="value" class="form-label">Valor: </label>
+            <input id="value" type="text" formControlName="value" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrição: </label>
+            <input id="description" type="text" formControlName="description" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="transaction_date" class="form-label">Data da transação: </label>
+            <input id="transaction_date" type="date" formControlName="transactionDate" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="transaction_type" class="form-label">Tipo da transação: </label>
+            <select id="transaction_type" formControlName="transactionType" class="form-control">
+                <option *ngFor="let transactionType of transactionTypes" [ngValue]="transactionType.id">
+                    {{ transactionType.name }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-warning" (click)="onSubmit()">Editar transação</button>
+    </form>
+
+    <pre> {{transactionForm.value | json}}</pre>
+</div>
+

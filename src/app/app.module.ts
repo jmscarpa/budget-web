@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import TransactionsListComponent from './pages/transactions-list/transactions-list.component';
 import { TransactionDetailsComponent } from './pages/transactions-details/transaction-details.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
+import { EditTransactionComponent } from './pages/edit-transaction/edit-transaction.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TransactionDetailsComponent,
     NewTransactionComponent,
     SpinnerLoadingComponent,
+    EditTransactionComponent,
   ],
 
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],

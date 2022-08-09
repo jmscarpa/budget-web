@@ -33,15 +33,16 @@
     <app-spinner-loading></app-spinner-loading>
 </div>
 
-<div class="card mb-3">
-    <div class="card-header">
-        Budget
-    </div>
-    <div class="card-body">
-        {{budgetAvaliable | currency:'BRL':'symbol':'1.2-2'}}
+<div *ngIf="transactions != [] && !loadingTransactions">
+    <div class="card mb-3">
+        <div class="card-header">
+            Budget
+        </div>
+        <div class="card-body">
+            {{budgetAvaliable | currency:'BRL':'symbol':'1.2-2'}}
+        </div>
     </div>
 </div>
-
 <!-- Empty transactions cards -->
 <div *ngIf="transactions != [] && !loadingTransactions">
     <div *ngFor="let transaction of transactions">
