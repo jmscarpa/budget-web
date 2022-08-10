@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers" scope="col">{{header}}</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of rows">
+            <td *ngFor="let header of headers" scope="row">{{row[header]}}</td>
+            <td>
+                <i class="bi bi-search"></i>
+                <i class="bi bi-pencil-fill mx-3"></i>
+                <i (click)="delete()" class="bi bi-trash-fill"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

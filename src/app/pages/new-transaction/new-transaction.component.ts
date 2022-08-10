@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { ApiService } from "src/app/services/api.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { TransactionType, TransactionTypes, Transaction } from "src/app/models/transaction";
+import { TransactionKind, TransactionNew } from "src/app/models/transaction";
 import { Router } from '@angular/router';
 @Component({
     selector: "app-new-transaction",
@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 export class NewTransactionComponent implements OnInit {
     constructor(private api: ApiService, private router: Router) { }
 
-    public transactionTypes: TransactionType[] = [];
+    public kinds: TransactionKind[] = [];
 
     public transactionForm: FormGroup = new FormGroup({
         value: new FormControl('', [Validators.required]),
         description: new FormControl('', [Validators.required]),
-        transactionDate: new FormControl('', [Validators.required]),
-        transactionType: new FormControl(null, [Validators.required]),
+        payd_at: new FormControl('', [Validators.required]),
+        kind: new FormControl(null, [Validators.required]),
     });
 
     public onSubmit(): void {
@@ -26,8 +26,8 @@ export class NewTransactionComponent implements OnInit {
             const data = {
                 "value": parseFloat(this.transactionForm.value.value),
                 "description": this.transactionForm.value.description,
-                "transaction_date": this.transactionForm.value.transactionDate,
-                "transaction_type_id": this.transactionForm.value.transactionType,
+                "payd_at": this.transactionForm.value.transactionDate,
+                "kind": this.transactionForm.value.transactionType,
             }
 
 
@@ -43,11 +43,11 @@ export class NewTransactionComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.api.get<TransactionTypes>('/transaction/new',).then((data) => {
-            this.transactionTypes = data.transaction_types;
+        this.api.get<TransactionNew>('/transaction/new',).then((data) => {
+            this.kinds = data.kinds;
 
             this.transactionForm.patchValue({
-                transactionType: this.transactionTypes[0].id
+                kind: this.kinds[0].id
             });
 
         });

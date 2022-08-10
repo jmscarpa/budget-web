@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data do pagamento</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Tipo de transação</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td scope="row">{{transaction.id}}</td>
+            <td scope="row">{{transaction.value | currency: 'BRL' }}</td>
+            <td scope="row">{{transaction.description}}</td>
+            <td scope="row">{{transaction.paid_at | date: 'd/M/y h:mm a'}}</td>
+            <td scope="row">{{transaction.category_name}}</td>
+            <td scope="row">{{transaction.kind }}</td>
+            <td>
+                <i class="bi bi-search"></i>
+                <i class="bi bi-pencil-fill mx-3"></i>
+                <i class="bi bi-trash-fill"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

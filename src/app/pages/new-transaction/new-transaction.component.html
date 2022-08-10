@@ -14,15 +14,15 @@
     </div>
 
     <div class="mb-3">
-        <label for="transaction_date" class="form-label">Data da transação: </label>
-        <input id="transaction_date" type="date" formControlName="transactionDate" class="form-control">
+        <label for="payd_at" class="form-label">Data da transação: </label>
+        <input id="payd_at" type="date" formControlName="payd_at" class="form-control">
     </div>
 
     <div class="mb-3">
-        <label for="transaction_type" class="form-label">Tipo da transação: </label>
-        <select id="transaction_type" formControlName="transactionType" class="form-control">
-            <option *ngFor="let transactionType of transactionTypes" [ngValue]="transactionType.id">
-                {{ transactionType.name }}
+        <label for="kind" class="form-label">Tipo da transação: </label>
+        <select id="kind" formControlName="kind" class="form-control">
+            <option *ngFor="let kind of kinds" [ngValue]="kind">
+                {{ kind.name }}
             </option>
         </select>
     </div>

@@ -2,8 +2,9 @@ export interface Transaction {
     id: number;
     value: number;
     description: string;
-    transaction_date: Date;
-    transaction_type: TransactionType;
+    paid_at: Date;
+    kind: TransactionKind;
+    category_name: string;
 }
 
 export interface TransactionIndex{
@@ -11,17 +12,22 @@ export interface TransactionIndex{
     transactions: Transaction[];
 }
 
-export interface TransactionType{
-    id: number;
+export interface TransactionKind{
+    id: string;
     name: string;
 }
 
-export interface TransactionTypes{
-    transaction_types: TransactionType[];
+export interface TrnsactionCategories{
+    transaction_categories: TransactionCategory[];
 }
 
 export interface TransactionNew{
-    transaction_types: TransactionType[];
+    kinds: TransactionKind[];
+    categories: TransactionCategory[];
+}
+export interface TransactionEdit{
+    kinds: TransactionKind[];
+    categories: TransactionCategory[];
     transaction: Transaction;
 }
 

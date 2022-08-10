@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://budget-api-pedrosa.herokuapp.com"
+  // apiUrl: "https://budget-api-pedrosa.herokuapp.com"
+  apiUrl: "http://localhost:3000"
 };
 
 /*

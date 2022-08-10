@@ -4,27 +4,22 @@
     <div class="col-4">
         <h2>Minhas transações</h2>
     </div>
-    <div class="col">
-        <button class="btn btn-primary" (click)="navigateToNewTransaction()">
-            Nova transação
-        </button>
-    </div>
 </div>
 <hr class="mb-8" />
 
-<div class="d-flex">
-    <div class="col-2">
-        <button type="button" class="btn btn-primary" (click)="getAllTransactions()">Mostrar todas</button>
-    </div>
-    <div class="col-2">
-        <button type="button" class="btn btn-primary" (click)="filterTransactions({transaction_type:'1'})">Mostrar
-            entradas</button>
-    </div>
-    <div class="col-2">
-        <button type="button" class="btn btn-primary" (click)="filterTransactions({transaction_type: '2'})">Mostrar
-            saidas</button>
-    </div>
+<div class="d-flex justify-content-center">
+
+    <button type="button" class="btn btn-primary" (click)="getAllTransactions()">Mostrar todas</button>
+    <button type="button" class="btn btn-primary mx-2" (click)="filterTransactions({kind:'income'})">Mostrar
+        entradas</button>
+    <button type="button" class="btn btn-primary" (click)="filterTransactions({kind: 'outcome'})">Mostrar
+        saidas</button>
+
 </div>
+
+<button class="btn btn-primary" (click)="navigateToNewTransaction()">
+    Nova transação
+</button>
 
 <hr class="mt-8" />
 
@@ -34,24 +29,10 @@
 </div>
 
 <div *ngIf="transactions != [] && !loadingTransactions">
-    <div class="card mb-3">
-        <div class="card-header">
-            Budget
-        </div>
-        <div class="card-body">
-            {{budgetAvaliable | currency:'BRL':'symbol':'1.2-2'}}
-        </div>
-    </div>
-</div>
-<!-- Empty transactions cards -->
-<div *ngIf="transactions != [] && !loadingTransactions">
-    <div *ngFor="let transaction of transactions">
-        <div style="padding-bottom: 16px">
-            <app-transaction-card [transaction]="transaction" [delete]="deleteTransaction"
-                [show]="navigateToTransaction" [edit]="navigateToEditTransaction">
-            </app-transaction-card>
-        </div>
-    </div>
+    <!-- <pre> {{computedRows | json}} </pre> -->
+
+    <!-- <app-generic-table [headers]="listHeaders" [rows]="computedRows"></app-generic-table> -->
+    <app-transactions-table [transactions]="transactions" ></app-transactions-table>
 </div>
 
 <!-- Empty transactions -->
