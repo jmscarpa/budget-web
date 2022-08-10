@@ -1,0 +1,19 @@
+<a [routerLink]="['/transaction-categories']">Voltar para categorias</a>
+
+<h2>Editar categoria</h2>
+
+<div *ngIf="loadingTransactionCategory">
+    <app-spinner-loading></app-spinner-loading>
+</div>
+
+<div *ngIf="!loadingTransactionCategory">
+    <form [formGroup]="transactionCategoryForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Valor: </label>
+            <input id="name" type="text" formControlName="name" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-warning" (click)="onSubmit()">Editar categoria</button>
+
+    </form>
+</div>

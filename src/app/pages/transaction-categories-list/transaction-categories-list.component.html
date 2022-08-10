@@ -5,7 +5,7 @@
         <h2>Minhas categorias</h2>
     </div>
     <div class="col">
-        <button class="btn btn-primary" (click)="navigateToTransaction()">
+        <button class="btn btn-primary" (click)="navigateToNewCategory()">
             Nova categoria
         </button>
     </div>
@@ -26,14 +26,12 @@
             </tr>
         </thead>
         <tbody>
-
             <tr *ngFor="let category of transactionCategories">
                 <th scope="row"> {{category.id}} </th>
                 <td>{{category.name}}</td>
                 <td>
-                    <button type="button" class="btn btn-info">Detalhes</button>
-                    <button type="button" class="btn btn-warning mx-4">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button>
+                    <button type="button" class="btn btn-warning" (click)="navigateToEditCategory(category.id)">Editar</button>
+                    <button type="button" class="btn btn-danger mx-4" (click)="deleteTransactionCategory(category.id)" >Excluir</button>
                 </td>
             </tr>
         </tbody>

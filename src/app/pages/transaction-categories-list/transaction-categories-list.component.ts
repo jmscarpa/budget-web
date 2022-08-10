@@ -24,17 +24,27 @@ export class TransactionCategoriesListComponent implements OnInit {
 
     public getAllTransactionCategories(): void {
         this.loadingCategories = true;
-        this.api.get<TransactionCategory[]>('transaction-types').then((data) => {
+        this.api.get<TransactionCategory[]>('transaction-categories').then((data) => {
             this.transactionCategories = data;
             this.loadingCategories = false;
         });
+    }
+
+    public deleteTransactionCategory(categoryId: number): void {
+        this.api.delete<any>(`transaction-categories/${categoryId}`).then((_) => {
+            this.getAllTransactionCategories();
+        })
     }
 
     /**
     * Navigation
     */
 
-    public navigateToTransaction(): void {
+    public navigateToNewCategory(): void {
         this.router.navigate(['/transaction-categories/new']);
+    }
+
+    public navigateToEditCategory(categoryId: number): void{
+        this.router.navigate(['/transaction-categories', categoryId]);
     }
 }

@@ -23,7 +23,7 @@ export class NewTransactionCategoryComponent {
                 "name": this.transactionCategoryForm.value.name,
             }
 
-            this.api.post<any>('transaction-types', data).then((data) => { 
+            this.api.post<any>('transaction-categories', data).then((data) => { 
                 this.router.navigate(['/transaction-categories']);
             }).catch((error) => { })
         }

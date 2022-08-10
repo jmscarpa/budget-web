@@ -19,6 +19,7 @@ import { EditTransactionComponent } from './pages/edit-transaction/edit-transact
 
 import { TransactionCategoriesListComponent } from './pages/transaction-categories-list/transaction-categories-list.component';
 import { NewTransactionCategoryComponent } from './pages/new-transaction-category/new-transaction-category.component';
+import { EditTransactionCategoryComponent } from './pages/edit-transaction-category/edit-transaction-category.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -35,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditTransactionComponent,
     TransactionCategoriesListComponent,
     TransactionCategoryCardComponent,
-    NewTransactionCategoryComponent
+    NewTransactionCategoryComponent,
+    EditTransactionCategoryComponent
   ],
 
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
