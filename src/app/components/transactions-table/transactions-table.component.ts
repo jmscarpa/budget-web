@@ -17,7 +17,6 @@ export class TransactionsTableComponent {
     @Input() refresh!: () => void;
 
     public deleteTransaction(transactionId: number): void {
-        // this.refresh();
         this.api.delete<any>(`transaction/${transactionId}`).then((_) => {
             this.refresh();
         });
@@ -26,4 +25,8 @@ export class TransactionsTableComponent {
     public navigateToEditTransaction(transactionId: number): void {
         this.router.navigate(['/transactions', transactionId, 'new']);
     }
+
+    public navigateToTransaction(transactionId: number): void {
+        this.router.navigate(['/transaction', transactionId]);
+      }
 }

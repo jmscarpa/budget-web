@@ -19,7 +19,7 @@
             <td scope="row">{{transaction.category_name}}</td>
             <td scope="row">{{transaction.kind }}</td>
             <td>
-                <i class="bi bi-search"></i>
+                <i class="bi bi-search" (click)="navigateToTransaction(transaction.id)"></i>
                 <i class="bi bi-pencil-fill mx-3" (click)="navigateToEditTransaction(transaction.id)" ></i>
                 <i class="bi bi-trash-fill" (click)="deleteTransaction(transaction.id)"></i>
             </td>

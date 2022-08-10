@@ -67,11 +67,6 @@ export default class TransactionsListComponent implements OnInit {
   /**
    * Navigation
    */
-
-  public navigateToTransaction(transactionId: number): void {
-    this.router.navigate(['/transaction', transactionId]);
-  }
-
   public navigateToNewTransaction(): void {
     this.router.navigate(['/transactions', 'new']);
   }
