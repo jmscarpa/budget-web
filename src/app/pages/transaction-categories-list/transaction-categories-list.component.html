@@ -16,26 +16,8 @@
     <app-spinner-loading></app-spinner-loading>
 </div>
 
-<div *ngIf="!loadingCategories">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let category of transactionCategories">
-                <th scope="row"> {{category.id}} </th>
-                <td>{{category.name}}</td>
-                <td>
-                    <button type="button" class="btn btn-warning" (click)="navigateToEditCategory(category.id)">Editar</button>
-                    <button type="button" class="btn btn-danger mx-4" (click)="deleteTransactionCategory(category.id)" >Excluir</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div *ngIf="transactionCategories != [] && !loadingCategories">
+    <app-transaction-categories-table [categories]="transactionCategories" [refresh]="getAllTransactionCategories"></app-transaction-categories-table>
 </div>
 
 <div *ngIf="transactionCategories == [] && !loadingCategories">

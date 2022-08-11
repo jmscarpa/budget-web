@@ -29,9 +29,6 @@
 </div>
 
 <div *ngIf="transactions != [] && !loadingTransactions">
-    <!-- <pre> {{computedRows | json}} </pre> -->
-
-    <!-- <app-generic-table [headers]="listHeaders" [rows]="computedRows"></app-generic-table> -->
     <app-transactions-table [transactions]="transactions" [refresh]="getAllTransactions"></app-transactions-table>
 </div>
 

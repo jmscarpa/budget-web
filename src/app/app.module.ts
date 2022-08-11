@@ -20,6 +20,7 @@ import { TransactionCategoriesListComponent } from './pages/transaction-categori
 import { NewTransactionCategoryComponent } from './pages/new-transaction-category/new-transaction-category.component';
 import { EditTransactionCategoryComponent } from './pages/edit-transaction-category/edit-transaction-category.component';
 import { TransactionsTableComponent } from './components/transactions-table/transactions-table.component';
+import { TransactionCategoriesTableComponent } from './components/transaction-categories-table/transaction-categories-table.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -45,6 +46,7 @@ registerLocaleData(localePt, 'pt');
     EditTransactionCategoryComponent,
     TransactionsTableComponent,
     GenericTableComponent,
+    TransactionCategoriesTableComponent,
   ],
 
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],

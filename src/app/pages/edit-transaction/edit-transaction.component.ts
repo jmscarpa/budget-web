@@ -23,7 +23,7 @@ export class EditTransactionComponent implements OnInit {
     public transactionForm: FormGroup = new FormGroup({
         value: new FormControl('', [Validators.required]),
         description: new FormControl('', [Validators.required]),
-        payd_at: new FormControl('', [Validators.required]),
+        paid_at: new FormControl('', [Validators.required]),
         kind: new FormControl(null, [Validators.required]),
     });
 
@@ -34,7 +34,7 @@ export class EditTransactionComponent implements OnInit {
             this.transactionForm.patchValue({
                 value: '',
                 description: '',
-                payd_at: '',
+                paid_at: '',
                 kind: '',
             });
 
@@ -55,7 +55,7 @@ export class EditTransactionComponent implements OnInit {
             this.transactionForm.patchValue({
                 value: this.transaction.value,
                 description: this.transaction.description, 
-                payd_at: this.transaction.paid_at,
+                paid_at: this.transaction.paid_at,
                 kind: this.transaction.kind,
             });
         });

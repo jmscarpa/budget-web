@@ -30,21 +30,11 @@ export class TransactionCategoriesListComponent implements OnInit {
         });
     }
 
-    public deleteTransactionCategory(categoryId: number): void {
-        this.api.delete<any>(`transaction-categories/${categoryId}`).then((_) => {
-            this.getAllTransactionCategories();
-        })
-    }
-
     /**
     * Navigation
     */
 
     public navigateToNewCategory(): void {
         this.router.navigate(['/transaction-categories/new']);
-    }
-
-    public navigateToEditCategory(categoryId: number): void{
-        this.router.navigate(['/transaction-categories', categoryId]);
     }
 }
