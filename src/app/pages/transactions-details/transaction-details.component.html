@@ -11,17 +11,17 @@
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
-                
                 <div class="d-flex">
-                    <i *ngIf="transaction!.kind.toString() == 'income'" class="bi bi-arrow-up" style="color: green;"></i>
-                    <i *ngIf="transaction!.kind.toString() == 'outcome'" class="bi bi-arrow-down" style="color: red;"></i>
+                    <i *ngIf="transaction!.kind.toString() == 'income'" class="bi bi-arrow-up"
+                        style="color: green;"></i>
+                    <i *ngIf="transaction!.kind.toString() == 'outcome'" class="bi bi-arrow-down"
+                        style="color: red;"></i>
                     <p class="mx-4">Valor: {{transaction?.value | currency: 'BRL' }} </p>
                 </div>
-                <div class="mt-4">
-                    <p class="mb-2">Descrição: {{transaction?.description}}</p>
-                    <p class="ml-auto">Data do pagamento: {{transaction?.paid_at | date: 'd/M/y - h:mm a'}}</p>
-                </div>
-     
+                <hr class="mb-8" />
+                <p class="mb-2">Descrição: {{transaction?.description}}</p>
+                <p class="mb-2">Categoria: {{transaction?.category_name}}</p>
+                <p class="ml-auto">Data do pagamento: {{transaction?.paid_at | date: 'd/M/y - h:mm a'}}</p>
             </blockquote>
         </div>
     </div>
