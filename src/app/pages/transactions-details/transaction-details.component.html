@@ -2,4 +2,27 @@
 
 <h2>Detalhes da transação</h2>
 
-<app-spinner-loading *ngIf="loadingTransaction" ></app-spinner-loading>
+<app-spinner-loading *ngIf="loadingTransaction"></app-spinner-loading>
+
+<div *ngIf="!loadingTransaction">
+    <div class="card">
+        <div class="card-header">
+            Código da transação: {{ transaction?.id || 'Não encontrada' }}
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                
+                <div class="d-flex">
+                    <i *ngIf="transaction!.kind.toString() == 'income'" class="bi bi-arrow-up" style="color: green;"></i>
+                    <i *ngIf="transaction!.kind.toString() == 'outcome'" class="bi bi-arrow-down" style="color: red;"></i>
+                    <p class="mx-4">Valor: {{transaction?.value | currency: 'BRL' }} </p>
+                </div>
+                <div class="mt-4">
+                    <p class="mb-2">Descrição: {{transaction?.description}}</p>
+                    <p class="ml-auto">Data do pagamento: {{transaction?.paid_at | date: 'd/M/y - h:mm a'}}</p>
+                </div>
+     
+            </blockquote>
+        </div>
+    </div>
+</div>

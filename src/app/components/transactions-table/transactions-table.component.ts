@@ -28,5 +28,5 @@ export class TransactionsTableComponent {
 
     public navigateToTransaction(transactionId: number): void {
         this.router.navigate(['/transaction', transactionId]);
-      }
+    }
 }
