@@ -15,6 +15,10 @@ import TransactionsListComponent from './pages/transactions-list/transactions-li
 import { TransactionDetailsComponent } from './pages/transactions-details/transaction-details.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
 import { EditTransactionComponent } from './pages/edit-transaction/edit-transaction.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 
 import { TransactionCategoriesListComponent } from './pages/transaction-categories-list/transaction-categories-list.component';
 import { NewTransactionCategoryComponent } from './pages/new-transaction-category/new-transaction-category.component';
@@ -47,6 +51,10 @@ registerLocaleData(localePt, 'pt');
     TransactionsTableComponent,
     GenericTableComponent,
     TransactionCategoriesTableComponent,
+    LoginComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
+    LayoutComponent
   ],
 
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
