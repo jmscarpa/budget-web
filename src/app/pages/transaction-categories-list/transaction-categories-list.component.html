@@ -1,23 +1,15 @@
-<a [routerLink]="['']">Back to Home</a>
-
-<div class="row">
-    <div class="col-4">
-        <h2>Minhas categorias</h2>
-    </div>
-    <div class="col">
-        <button class="btn btn-primary" (click)="navigateToNewCategory()">
-            Nova categoria
-        </button>
-    </div>
-</div>
-
+<button class="btn btn-primary" (click)="navigateToNewCategory()">
+    Nova categoria
+</button>
+<hr class="mt-8" />
 
 <div *ngIf="loadingCategories">
     <app-spinner-loading></app-spinner-loading>
 </div>
 
 <div *ngIf="transactionCategories != [] && !loadingCategories">
-    <app-transaction-categories-table [categories]="transactionCategories" [refresh]="getAllTransactionCategories"></app-transaction-categories-table>
+    <app-transaction-categories-table [categories]="transactionCategories" [refresh]="getAllTransactionCategories">
+    </app-transaction-categories-table>
 </div>
 
 <div *ngIf="transactionCategories == [] && !loadingCategories">

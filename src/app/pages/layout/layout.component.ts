@@ -8,12 +8,30 @@ import { Router } from "@angular/router";
 })
 
 export class LayoutComponent {
-    constructor(private router: Router) {}
+    constructor(private router: Router) { }
 
     public userEmail: string | null = localStorage.getItem('email');
 
     public logout(): void {
         localStorage.clear();
         this.router.navigate(['/login']);
+    }
+
+    // Navigate
+    public navigate(pageIndex: number): void {
+        switch (pageIndex) {
+            case 0:
+                this.router.navigate(['/']);
+                break;
+            case 1:
+                this.router.navigate(['/transactions']);
+                break;
+            case 2:
+                this.router.navigate(['/transaction-categories']);
+                break;
+            default:
+                this.router.navigate(['/']);
+                break;
+        }
     }
 }
