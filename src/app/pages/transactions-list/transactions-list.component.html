@@ -20,6 +20,11 @@
 </div>
 
 <div *ngIf="transactions != [] && !loadingTransactions">
+    <div class="card">
+        <h4 class="card-header">Saldo das transações</h4>
+        <p [ngStyle]="{'color': budgetAvaliable < 0 ? 'red' : 'green'}" class="card-text ms-4 my-2">{{budgetAvaliable |
+            currency: 'BRL'}}</p>
+    </div>
     <app-transactions-table [transactions]="transactions" [refresh]="getAllTransactions"></app-transactions-table>
 </div>
 
