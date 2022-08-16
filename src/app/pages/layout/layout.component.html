@@ -1,6 +1,25 @@
-<div class="d-flex justify-content-between mt-4">
+<!-- <div class="d-flex justify-content-between mt-4">
     <p>Email: {{userEmail}}</p>
     <button class="btn btn-success" type="button" (click)="logout()">Logout</button>
 
+</div> -->
+
+<!-- HEADER -->
+<nav class="navbar d-flex bd-highlight">
+    <h4 class="navbar-title">Budget-app</h4>
+    <p class="navbar-user">{{userEmail}}</p>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar">
+            <div class="d-flex flex-column">
+                <div class="sidebar-item"><i class="bi bi-credit-card"></i> Transações</div>
+                <div class="sidebar-item"><i class="bi bi-clipboard-minus"></i> Categorias</div>
+            </div>
+        </div>
+        <div class="col-md-9 page-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
-<router-outlet></router-outlet>
