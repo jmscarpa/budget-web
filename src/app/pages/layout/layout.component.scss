@@ -35,7 +35,20 @@
     cursor: pointer;
 }
 
-.sidebar-item:hover {
+.sidebar-item-selected{
+    border-radius: $border-radius;
+    color: $white;
+    background-color: $primary;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sidebar-item:hover .sidebar-item-selected:hover {
     background-color: $table-hover-bg;
 }
 

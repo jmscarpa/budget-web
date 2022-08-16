@@ -8,9 +8,9 @@
     <div class="row">
         <div class="col-md-2 sidebar">
             <div class="d-flex flex-column mx-4 mt-4 mb-4">
-                <div class="sidebar-item" (click)="navigate(0)"><i class="bi bi-house-door"></i> Home</div>
-                <div class="sidebar-item mt-2 mb-2" (click)="navigate(1)"><i class="bi bi-credit-card"></i> Transações</div>
-                <div class="sidebar-item" (click)="navigate(2)"><i class="bi bi-clipboard-minus"></i> Categorias</div>
+                <div [ngClass]="{'sidebar-item': pageIndex != 0, 'sidebar-item-selected': pageIndex == 0 }" (click)="navigate(0)"><i class="bi bi-house-door"></i> Home</div>
+                <div [ngClass]="{'sidebar-item': pageIndex != 1, 'sidebar-item-selected': pageIndex == 1 } "class="mt-2 mb-2" (click)="navigate(1)"><i class="bi bi-credit-card"></i> Transações</div>
+                <div [ngClass]="{'sidebar-item': pageIndex != 2, 'sidebar-item-selected': pageIndex == 2 }" (click)="navigate(2)"><i class="bi bi-clipboard-minus"></i> Categorias</div>
             </div>
         </div>
         <div class="col-md-9 page-content">
