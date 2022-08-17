@@ -19,6 +19,7 @@ export class LayoutComponent {
         this.router.navigate(['/login']);
     }
 
+
     // Navigate
     public navigate(pageIndex: number): void {
         switch (pageIndex) {

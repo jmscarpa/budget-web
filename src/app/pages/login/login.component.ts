@@ -19,8 +19,24 @@ export class LoginComponent {
     });
 
     public onSubmit(): void {
-        localStorage.setItem('email', this.form.value.email);
-        this.router.navigate(['']);
+        if (this.form.valid) {
+
+            const data = {
+                "email": this.form.value.email,
+                "password": this.form.value.password,
+            }
+
+            this.api.post<any>('sessions', data).then((apiData) => {
+                localStorage.setItem('email', apiData.email);
+                this.router.navigate(['']);
+            }).catch((error) => {
+                alert(error.error);
+            })
+
+        } else {
+            alert('Invalid form');
+        }
+
     }
 
     public navigateToForgotPassword(): void {
