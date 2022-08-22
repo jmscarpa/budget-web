@@ -10,8 +10,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 
 export class LoginComponent {
-    constructor(private api: ApiService, private router: Router) {
-    }
+    constructor(private api: ApiService, private router: Router) {}
 
     public form: FormGroup = new FormGroup({
         email: new FormControl('', [Validators.required]),
