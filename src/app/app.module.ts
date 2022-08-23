@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { JwtModule } from "@auth0/angular-jwt";
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -35,6 +36,8 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
 registerLocaleData(localePt, 'pt');
+
+export const tokenGetter = (): string | null => localStorage.token as string;
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +60,17 @@ registerLocaleData(localePt, 'pt');
     LayoutComponent
   ],
 
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+      }
+    })
+    
+  ],
   providers: [TransactionKindPipe, CurrencyPipe, { provide: LOCALE_ID, useValue: 'pt' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }],
   bootstrap: [AppComponent],
 })

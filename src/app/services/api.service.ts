@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
+import { AuthService } from './auth.service';
 
 export interface RequestSettings {
   throw404Errors: boolean;
@@ -12,7 +13,7 @@ export interface RequestSettings {
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router, private authService: AuthService) { }
 
   public async get<T>(
     url: string,
@@ -98,9 +99,15 @@ export class ApiService {
   }
 
   private getOptions(params: object = {}, body: object = {}): object {
-    const headers = {
+    const headers: any = {
       'Content-Type': 'application/json',
     };
+
+    let token = this.authService.token;
+
+    if (token) { 
+      headers['Authorization'] = `Bearer ${token}`;
+    }
 
     return {
       headers,

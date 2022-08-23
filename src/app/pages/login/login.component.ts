@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from '@angular/router';
 import { ApiService } from "src/app/services/api.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
     selector: "app-login",
@@ -10,7 +11,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 
 export class LoginComponent {
-    constructor(private api: ApiService, private router: Router) {}
+    constructor(private api: ApiService, private router: Router, private authService: AuthService) {}
 
     public form: FormGroup = new FormGroup({
         email: new FormControl('', [Validators.required]),
@@ -26,7 +27,8 @@ export class LoginComponent {
             }
 
             this.api.post<any>('sessions', data).then((apiData) => {
-                localStorage.setItem('email', apiData.email);
+                localStorage.setItem('email', this.form.value.email);
+                this.authService.token = apiData.token;
                 this.router.navigate(['']);
             }).catch((error) => {
                 alert(error.error);
